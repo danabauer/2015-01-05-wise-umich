@@ -22,11 +22,7 @@ from the `survey` table,
 we get this:
 
 
-<pre class="in"><code>%load_ext sqlitemagic</code></pre>
-
-
-<pre class="in"><code>%%sqlite survey.db
-select quant from Survey;</code></pre>
+<pre class="in"><code>SELECT quant FROM Survey;</code></pre>
 
 <div class="out"><table>
 <tr><td>rad</td></tr>
@@ -59,8 +55,7 @@ by adding the `distinct` keyword
 to our query:
 
 
-<pre class="in"><code>%%sqlite survey.db
-select distinct quant from Survey;</code></pre>
+<pre class="in"><code>SELECT distinct quant FROM Survey;</code></pre>
 
 <div class="out"><table>
 <tr><td>rad</td></tr>
@@ -74,8 +69,7 @@ both the survey site ID and the quantity measured&mdash;then
 the distinct pairs of values are returned:
 
 
-<pre class="in"><code>%%sqlite survey.db
-select distinct taken, quant from Survey;</code></pre>
+<pre class="in"><code>SELECT distinct taken, quant FROM Survey;</code></pre>
 
 <div class="out"><table>
 <tr><td>619</td><td>rad</td></tr>
@@ -121,8 +115,7 @@ e.g., by the name of the project instead of by the name of the scientist.
 We can do this in SQL by adding an `order by` clause to our query:
 
 
-<pre class="in"><code>%%sqlite survey.db
-select * from Person order by ident;</code></pre>
+<pre class="in"><code>SELECT * FROM Person ORDER BY ident;</code></pre>
 
 <div class="out"><table>
 <tr><td>danforth</td><td>Frank</td><td>Danforth</td></tr>
@@ -140,8 +133,7 @@ from least to greatest).
 We can sort in the opposite order using `desc` (for "descending"):
 
 
-<pre class="in"><code>%%sqlite survey.db
-select * from person order by ident desc;</code></pre>
+<pre class="in"><code>SELECT * FROM person ORDER BY ident DESC;</code></pre>
 
 <div class="out"><table>
 <tr><td>roe</td><td>Valentina</td><td>Roerich</td></tr>
@@ -162,8 +154,7 @@ and then in descending order by `person`
 within each group of equal `taken` values:
 
 
-<pre class="in"><code>%%sqlite survey.db
-select taken, person from Survey order by taken asc, person desc;</code></pre>
+<pre class="in"><code>SELECT taken, person FROM Survey ORDER BY taken ASC, person DESC;</code></pre>
 
 <div class="out"><table>
 <tr><td>619</td><td>dyer</td></tr>
@@ -193,8 +184,7 @@ select taken, person from Survey order by taken asc, person desc;</code></pre>
 This is easier to understand if we also remove duplicates:
 
 
-<pre class="in"><code>%%sqlite survey.db
-select distinct taken, person from Survey order by taken asc, person desc;</code></pre>
+<pre class="in"><code>SELECT DISTINCT taken, person FROM Survey ORDER BY taken ASC, person DESC;</code></pre>
 
 <div class="out"><table>
 <tr><td>619</td><td>dyer</td></tr>
@@ -218,6 +208,9 @@ select distinct taken, person from Survey order by taken asc, person desc;</code
 1.  Write a query that returns the distinct dates in the `Visited` table.
 
 2.  Write a query that displays the full names of the scientists in the `Person` table, ordered by family name.
+
+**After 1 minute, ask Students to compare with a partner. Pick 2 people to share thier answers with the class**
+
 
 
 <div class="keypoints" markdown="1">

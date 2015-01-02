@@ -47,6 +47,8 @@ After installing Wget (or cURL) locally, run the following command on your termi
 
 <i>[Tip: If you prefer to use cURL, replace "wget" with "curl -O" in the following command.]</i>
 
+<i> [Note: If students have a problem with installing Wget or CURL, have a backup copy of the database on my website they can download directly] <i>
+
 
 <pre class="in"><code>mom@durga:~/swc/sql$ wget https://raw.githubusercontent.com/swcarpentry/bc/master/novice/sql/gen-survey-database.sql</code></pre>
 
@@ -123,17 +125,3 @@ Now, you are done with the setup and you can proceed to the next lesson. You can
 
 
 <pre class="in"><code>sqlite&gt; .quit</code></pre>
-
-
-### How to use the IPython notebook instead of the SQLite3 CLI
-
-
-If you prefer to use an IPython notebook to follow the examples, check if IPython is installed on your machine. If it is not installed, follow the [installation instructions](http://ipython.org/install.html). 
-
-If IPython is already installed on your local machine, to open a notebook, type "ipython notebook" from within the ~/swc/sql folder. 
-
-
-<pre class="in"><code>~/swc/sql$ ipython notebook</code></pre>
-
-
-The above command will launch the IPython kernel displaying an interactive notebook on your default browser, which can be edited as you learn. The commands shown in the next lessons can be executed as they are in the IPython notebook. When you are done, to keep your changes, remember to save your notebook.

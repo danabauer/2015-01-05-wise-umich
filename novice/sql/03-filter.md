@@ -24,11 +24,7 @@ We can select these records from the `Visited` table
 by using a `where` clause in our query:
 
 
-<pre class="in"><code>%load_ext sqlitemagic</code></pre>
-
-
-<pre class="in"><code>%%sqlite survey.db
-select * from Visited where site=&#39;DR-1&#39;;</code></pre>
+<pre class="in"><code>select * from Visited where site=&#39;DR-1&#39;;</code></pre>
 
 <div class="out"><table>
 <tr><td>619</td><td>DR-1</td><td>1927-02-08</td></tr>
@@ -50,8 +46,7 @@ we can filter records using `where`
 based on values in columns that aren't then displayed:
 
 
-<pre class="in"><code>%%sqlite survey.db
-select ident from Visited where site=&#39;DR-1&#39;;</code></pre>
+<pre class="in"><code>SELECT ident FROM Visited WHERE site=&#39;DR-1&#39;;</code></pre>
 
 <div class="out"><table>
 <tr><td>619</td></tr>
@@ -68,8 +63,7 @@ For example,
 we can ask for all information from the DR-1 site collected since 1930:
 
 
-<pre class="in"><code>%%sqlite survey.db
-select * from Visited where (site=&#39;DR-1&#39;) and (dated&gt;=&#39;1930-00-00&#39;);</code></pre>
+<pre class="in"><code>SELECT * FROM Visited WHERE (site=&#39;DR-1&#39;) and (dated&gt;=&#39;1930-00-00&#39;);</code></pre>
 
 <div class="out"><table>
 <tr><td>844</td><td>DR-1</td><td>1932-03-22</td></tr>
@@ -77,7 +71,7 @@ select * from Visited where (site=&#39;DR-1&#39;) and (dated&gt;=&#39;1930-00-00
 
 
 (The parentheses around the individual tests aren't strictly required,
-but they help make the query easier to read.)
+but they help make the query easier to read.) **STYLE**
 
 > Most database managers have a special data type for dates.
 > In fact, many have two:
@@ -98,13 +92,15 @@ but they help make the query easier to read.)
 > but not nearly as complicated as figuring out
 > [historical dates in Sweden](http://en.wikipedia.org/wiki/Swedish_calendar).
 
+**This is why for several of my ecological databases, I have stored dates as 3 separate columns. It's a bit clunky, but this allows me to store them as integers (for year, month, and day separately) that can be queried easily. e.g. all rodents captured in July and August, or species captured before 1989).**
+
+
 
 If we want to find out what measurements were taken by either Lake or Roerich,
 we can combine the tests on their names using `or`:
 
 
-<pre class="in"><code>%%sqlite survey.db
-select * from Survey where person=&#39;lake&#39; or person=&#39;roe&#39;;</code></pre>
+<pre class="in"><code>SELECT * FROM Survey WHERE person=&#39;lake&#39; OR person=&#39;roe&#39;;</code></pre>
 
 <div class="out"><table>
 <tr><td>734</td><td>lake</td><td>sal</td><td>0.05</td></tr>
@@ -124,8 +120,7 @@ Alternatively,
 we can use `in` to see if a value is in a specific set:
 
 
-<pre class="in"><code>%%sqlite survey.db
-select * from Survey where person in (&#39;lake&#39;, &#39;roe&#39;);</code></pre>
+<pre class="in"><code>select * from Survey where person in (&#39;lake&#39;, &#39;roe&#39;);</code></pre>
 
 <div class="out"><table>
 <tr><td>734</td><td>lake</td><td>sal</td><td>0.05</td></tr>
@@ -147,8 +142,7 @@ If we *don't* use parentheses,
 we get this:
 
 
-<pre class="in"><code>%%sqlite survey.db
-select * from Survey where quant=&#39;sal&#39; and person=&#39;lake&#39; or person=&#39;roe&#39;;</code></pre>
+<pre class="in"><code>select * from Survey where quant=&#39;sal&#39; and person=&#39;lake&#39; or person=&#39;roe&#39;;</code></pre>
 
 <div class="out"><table>
 <tr><td>734</td><td>lake</td><td>sal</td><td>0.05</td></tr>
@@ -166,8 +160,7 @@ and *any* measurement by Roerich.
 We probably want this instead:
 
 
-<pre class="in"><code>%%sqlite survey.db
-select * from Survey where quant=&#39;sal&#39; and (person=&#39;lake&#39; or person=&#39;roe&#39;);</code></pre>
+<pre class="in"><code>select * from Survey where quant=&#39;sal&#39; and (person=&#39;lake&#39; or person=&#39;roe&#39;);</code></pre>
 
 <div class="out"><table>
 <tr><td>734</td><td>lake</td><td>sal</td><td>0.05</td></tr>
@@ -184,8 +177,7 @@ we can use `distinct` with `where`
 to give a second level of filtering:
 
 
-<pre class="in"><code>%%sqlite survey.db
-select distinct person, quant from Survey where person=&#39;lake&#39; or person=&#39;roe&#39;;</code></pre>
+<pre class="in"><code>select distinct person, quant from Survey where person=&#39;lake&#39; or person=&#39;roe&#39;;</code></pre>
 
 <div class="out"><table>
 <tr><td>lake</td><td>sal</td></tr>
@@ -229,7 +221,7 @@ not to the entire rows as they are being processed.
     select * from Site where (lat > -60) or (lat < 60);
     ~~~
 
-    Explain why this is wrong,
+    **Explain why this is wrong**,
     and rewrite the query so that it is correct.
 
 2.  Normalized salinity readings are supposed to be between 0.0 and 1.0.
@@ -240,7 +232,7 @@ not to the entire rows as they are being processed.
     is true if the value in the named column
     matches the pattern given;
     the character '%' can be used any number of times in the pattern
-    to mean "match zero or more characters".
+    to mean "match zero or more characters". Compare your work with a partner.
 
     <table>
       <tr> <th>Expression</th> <th>Value</th> </tr>
@@ -256,6 +248,7 @@ not to the entire rows as they are being processed.
     write a query that finds all the records in `Visited`
     that *aren't* from sites labelled 'DR-something'.
 
+**select * from Site WHERE name like 'DR%'**
 
 <div class="keypoints" markdown="1">
 #### Key Points

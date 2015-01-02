@@ -22,8 +22,16 @@ Other languages use almost exactly the same model:
 library and function names may differ,
 but the concepts are the same.
 
-Here's a short Python program that selects latitudes and longitudes
+Here's a short R program that selects latitudes and longitudes
 from an SQLite database stored in a file called `survey.db`:
+
+<pre class="in"><code>install.packages(RSQLite)
+library(RSQLite)
+con = dbConnect(drv="SQLite", dbname="survey.db")
+alltables = dbListTables(con) #get a list of the tables
+#get desired data as a dataframe
+p1 = dbGetQuery( con,'select site.lat site.long from site' )
+</code></pre>
 
 
 <pre class="in"><code>import sqlite3
@@ -42,7 +50,7 @@ connection.close()</code></pre>
 </code></pre></div>
 
 
-The program starts by importing the `sqlite3` library.
+The program starts by installing and loading the `RSQLite` library.
 If we were connecting to MySQL, DB2, or some other database,
 we would import a different library,
 but all of them provide the same functions,

@@ -74,7 +74,9 @@ SQL provides hundreds of different ways to analyze and recombine data;
 we will only look at a handful,
 but that handful accounts for most of what scientists do.
 
-The tables below show the database we will use in our examples:
+**INSTRUCTOR NOTE: We will have 4 tables in our database. Draw on board and point out the relationships between the tables. Build on notes from Christie and Kara's data carpentry tidbits**
+
+<i>The tables below show the database we will use in our examples:</i>
 
 
 <table>
@@ -154,14 +156,51 @@ For now,
 let's write an SQL query that displays scientists' names.
 We do this using the SQL command `select`,
 giving it the names of the columns we want and the table we want them from.
+
+
+##Loading the data into Firefox SQLite Manager
+-----------------
+
+###Import
+
+Data can be added that is already in a sqlite databae, or by entering CSV or TXT files manually.
+
+1. __If__ a .sqlite file already exists: Open your database: **Database -> Connect Database** Skip the other steps. (The icon for this is the folder with an arrow pointing out of it)
+
+1. __If__ you are putting together a database from .csv files: Start a New Database **Database -> New Database**  You'll be asked to enter the name of the database you want to create and where you want to save it.
+2. Start to import the tables **Database -> Import** 
+3. Select the file to import
+4. Give the table a name (or use the default)
+5. If the first row has column headings, check the appropriate box (In our examples they do)
+6. Make sure the delimiter and quotation options are correct
+7. Press **OK**
+8. When asked if you want to modify the table, click **OK**
+9. Set the data types for each field ** This is important because the type matters what you can do with the data **
+
+####EXERCISE: 
+**Import the example database**
+
+**Explore the different options for displaying the data in the SQL Manager**
+
+* Structure
+* Browse and Search
+
+You can also use this same approach to append new data to an existing table.
+
+
+### Writing a Query
+Let's make our first SQL query!
+Go to the "Execute SQL" tab in the SQLite Manager. This is the place that we will use to write our queries in this tool. If we decide later that we would like to save a summary table, we can use "Create View" under the "View" toolbar (more on this later).
+
 Our query and its output look like this:
 
 
-<pre class="in"><code>%load_ext sqlitemagic</code></pre>
+<pre class="in"><code>%SELECT * FROM table</code></pre>
+
+In the above example, * represents all the columns in the table. But we can pick and choose which columns we would like to see.
 
 
-<pre class="in"><code>%%sqlite survey.db
-select family, personal from Person;</code></pre>
+<pre class="in"><code>SELECT family, personal FROM Person</code></pre>
 
 <div class="out"><table>
 <tr><td>Dyer</td><td>William</td></tr>
@@ -172,8 +211,9 @@ select family, personal from Person;</code></pre>
 </table></div>
 
 
-The semi-colon at the end of the query
+In the Firefox SQLite Manager, we don't need to end our statement with a semi-colon (although we can), but in many other tools you do. The semi-colon at the end of the query
 tells the database manager that the query is complete and ready to run.
+
 We have written our commands and column names in lower case,
 and the table name in Title Case,
 but we don't have to:
@@ -181,8 +221,7 @@ as the example below shows,
 SQL is [case insensitive](../../gloss.html#case-insensitive).
 
 
-<pre class="in"><code>%%sqlite survey.db
-SeLeCt FaMiLy, PeRsOnAl FrOm PeRsOn;</code></pre>
+<pre class="in"><code>SeLeCt FaMiLy, PeRsOnAl FrOm PeRsOn;</code></pre>
 
 <div class="out"><table>
 <tr><td>Dyer</td><td>William</td></tr>
@@ -195,7 +234,7 @@ SeLeCt FaMiLy, PeRsOnAl FrOm PeRsOn;</code></pre>
 
 Whatever casing convention you choose,
 please be consistent:
-complex queries are hard enough to read without the extra cognitive load of random capitalization.
+complex queries are hard enough to read without the extra cognitive load of random capitalization. Here, I have capitalized the words SELECT and FROM because they are SQL keywords. For me, this helps with readability – good style.
 
 
 Going back to our query,
@@ -207,8 +246,7 @@ For example,
 we could swap the columns in the output by writing our query as:
 
 
-<pre class="in"><code>%%sqlite survey.db
-select personal, family from Person;</code></pre>
+<pre class="in"><code>SELECT personal, family FROM Person;</code></pre>
 
 <div class="out"><table>
 <tr><td>William</td><td>Dyer</td></tr>
@@ -222,8 +260,7 @@ select personal, family from Person;</code></pre>
 or even repeat columns:
 
 
-<pre class="in"><code>%%sqlite survey.db
-select ident, ident, ident from Person;</code></pre>
+<pre class="in"><code>SELECT ident, ident, ident FROM Person;</code></pre>
 
 <div class="out"><table>
 <tr><td>dyer</td><td>dyer</td><td>dyer</td></tr>
@@ -272,9 +309,9 @@ select * from Person;</code></pre>
 <div class="keypoints" markdown="1">
 #### Key Points
 
-*   A relational database stores information in tables,
+*    A relational database stores information in tables,
     each of which has a fixed set of columns and a variable number of records.
-*   A database manager is a program that manipulates information stored in a database.
-*   We write queries in a specialized language called SQL to extract information from databases.
-*   SQL is case-insensitive.
+ *   A database manager is a program that manipulates information stored in a database.
+ *   We write queries in a specialized language called SQL to extract information from databases.
+ *   SQL is case-insensitive.
 </div>

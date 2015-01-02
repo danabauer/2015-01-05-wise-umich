@@ -21,11 +21,8 @@ we can do this calculation on the fly
 as part of our query:
 
 
-<pre class="in"><code>%load_ext sqlitemagic</code></pre>
 
-
-<pre class="in"><code>%%sqlite survey.db
-select 1.05 * reading from Survey where quant=&#39;rad&#39;;</code></pre>
+<pre class="in"><code>select 1.05 * reading from Survey where quant=&#39;rad&#39;;</code></pre>
 
 <div class="out"><table>
 <tr><td>10.311</td></tr>
@@ -50,8 +47,7 @@ we can convert temperature readings from Fahrenheit to Celsius
 and round to two decimal places:
 
 
-<pre class="in"><code>%%sqlite survey.db
-select taken, round(5*(reading-32)/9, 2) from Survey where quant=&#39;temp&#39;;</code></pre>
+<pre class="in"><code>select taken, round(5*(reading-32)/9, 2) from Survey where quant=&#39;temp&#39;;</code></pre>
 
 <div class="out"><table>
 <tr><td>734</td><td>-29.72</td></tr>
@@ -65,8 +61,7 @@ We can also combine values from different fields,
 for example by using the string concatenation operator `||`:
 
 
-<pre class="in"><code>%%sqlite survey.db
-select personal || &#39; &#39; || family from Person;</code></pre>
+<pre class="in"><code>select personal || &#39; &#39; || family from Person;</code></pre>
 
 <div class="out"><table>
 <tr><td>William Dyer</td></tr>
@@ -76,6 +71,7 @@ select personal || &#39; &#39; || family from Person;</code></pre>
 <tr><td>Frank Danforth</td></tr>
 </table></div>
 
+**DISCUSS WITH PARTNER FOR 1 MINUTE: While we're thinking about data structure, why do you think the names here are divided into family and personal? Would you use firs and last? Or would you combine the names into a single character string, as we just did? Why or why not?**
 
 > It may seem strange to use `personal` and `family` as field names
 > instead of `first` and `last`,
@@ -113,8 +109,7 @@ select personal || &#39; &#39; || family from Person;</code></pre>
 2.  The `union` operator combines the results of two queries:
 
 
-<pre class="in"><code>%%sqlite survey.db
-select * from Person where ident=&#39;dyer&#39; union select * from Person where ident=&#39;roe&#39;;</code></pre>
+<pre class="in"><code>select * from Person where ident=&#39;dyer&#39; union select * from Person where ident=&#39;roe&#39;;</code></pre>
 
 <div class="out"><table>
 <tr><td>dyer</td><td>William</td><td>Dyer</td></tr>
@@ -138,14 +133,13 @@ The output should be something like:
   <tr> <td>837</td> <td>0.225</td> </tr>
 </table>
 
-
+**Answer:** <pre class="in"><code>SELECT taken, person, quant,reading/100 FROM survey WHERE quant='sal' and person='roe' UNION SELECT * FROM survey WHERE person NOT LIKE 'roe'</code></pre>
 
 3.  The site identifiers in the `Visited` table have two parts
     separated by a '-':
 
 
-<pre class="in"><code>%%sqlite survey.db
-select distinct site from Visited;</code></pre>
+<pre class="in"><code>SELECT DISTINCT site FROM Visited;</code></pre>
 
 <div class="out"><table>
 <tr><td>DR-1</td></tr>
@@ -163,6 +157,9 @@ returns the substring of X starting at index I.
 Use these two functions to produce a list of unique major site identifiers.
 (For this data,
 the list should contain only "DR" and "MSK").
+
+**ANSWER:** 
+<pre class="in"><code>SELECT DISTINCT substr(site,'-',4) FROM visited</code></pre>
 
 
 <div class="keypoints" markdown="1">

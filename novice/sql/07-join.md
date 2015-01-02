@@ -16,6 +16,27 @@ root: ../..
 *   Explain what atomic values are, and why database fields should only contain atomic values.
 </div>
 
+**So far, everything we have done has been about one table. But the real power for databases comes when we consider how data can be linked across tables.**
+
+
+Database Design
+----------------
+**Each field in a database should store a single value.
+Information should not be duplicated in a database.
+Each table should be about a single subject (avoids uneccesary replication).
+When naming fields, think about meaning, not presentation.**
+
+**When we divide our data between several tables, we need a way to bring it back together. 
+The key is to have an identifier in common between tables - shared columns. 
+This will allow us to JOIN tables.
+This is what we will discuss now.**
+
+**For example, the person code is included in the Survey table,
+but we don’t know the full names  if we only look at this table.
+That information is stored in the Person table and can be
+linked to if we need it.
+This means that we don't have to record the full personal, family,
+and person code information every time a reading is recorded. As databases get larger, minimizing repeated information is extremely useful!**  
 
 In order to submit her data to a web site
 that aggregates historical meteorological data,
@@ -32,11 +53,7 @@ To see how it works,
 let's start by joining the `Site` and `Visited` tables:
 
 
-<pre class="in"><code>%load_ext sqlitemagic</code></pre>
-
-
-<pre class="in"><code>%%sqlite survey.db
-select * from Site join Visited;</code></pre>
+<pre class="in"><code>select * from Site join Visited;</code></pre>
 
 <div class="out"><table>
 <tr><td>DR-1</td><td>-49.85</td><td>-128.57</td><td>619</td><td>DR-1</td><td>1927-02-08</td></tr>
@@ -86,8 +103,7 @@ we add a clause specifying that
 we're only interested in combinations that have the same site name:
 
 
-<pre class="in"><code>%%sqlite survey.db
-select * from Site join Visited on Site.name=Visited.site;</code></pre>
+<pre class="in"><code>SELECT * FROM Site JOIN Visited ON Site.name=Visited.site;</code></pre>
 
 <div class="out"><table>
 <tr><td>DR-1</td><td>-49.85</td><td>-128.57</td><td>619</td><td>DR-1</td><td>1927-02-08</td></tr>
@@ -126,10 +142,9 @@ to select the three columns we actually want
 out of our join:
 
 
-<pre class="in"><code>%%sqlite survey.db
-select Site.lat, Site.long, Visited.dated
-from   Site join Visited
-on     Site.name=Visited.site;</code></pre>
+<pre class="in"><code>SELECT Site.lat, Site.long, Visited.dated
+FROM   Site JOIN Visited
+ON     Site.name=Visited.site;</code></pre>
 
 <div class="out"><table>
 <tr><td>-49.85</td><td>-128.57</td><td>1927-02-08</td></tr>
@@ -152,12 +167,11 @@ and more `on` tests to filter out combinations of records
 that don't make sense:
 
 
-<pre class="in"><code>%%sqlite survey.db
-select Site.lat, Site.long, Visited.dated, Survey.quant, Survey.reading
-from   Site join Visited join Survey
-on     Site.name=Visited.site
-and    Visited.ident=Survey.taken
-and    Visited.dated is not null;</code></pre>
+<pre class="in"><code>SELECT Site.lat, Site.long, Visited.dated, Survey.quant, Survey.reading
+FROM   Site JOIN Visited JOIN Survey
+ON     Site.name=Visited.site
+AND    Visited.ident=Survey.taken
+AND    Visited.dated is not null;</code></pre>
 
 <div class="out"><table>
 <tr><td>-49.85</td><td>-128.57</td><td>1927-02-08</td><td>rad</td><td>9.82</td></tr>
@@ -185,7 +199,7 @@ correspond with each other
 because those tables contain
 [primary keys](../../gloss.html#primary-key)
 and [foreign keys](../../gloss.html#foreign-key).
-A primary key is a value,
+A **primary key** is a value,
 or combination of values,
 that uniquely identifies each record in a table.
 A foreign key is a value (or combination of values) from one table
@@ -216,8 +230,7 @@ SQLite automatically numbers records as they're added to tables,
 and we can use those record numbers in queries:
 
 
-<pre class="in"><code>%%sqlite survey.db
-select rowid, * from Person;</code></pre>
+<pre class="in"><code>select rowid, * from Person;</code></pre>
 
 <div class="out"><table>
 <tr><td>1</td><td>dyer</td><td>William</td><td>Dyer</td></tr>
@@ -303,6 +316,7 @@ the tool shapes the hand that shapes the tool.
     on Site.lat<-49.0 and Site.name=Visited.site and Visited.dated>='1932-00-00';
     ~~~
 
+**ANSWER: ON acts like WHERE. Could also be written using WHERE and ON.**
 
 <div class="keypoints" markdown="1">
 #### Key Points

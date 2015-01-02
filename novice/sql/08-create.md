@@ -67,6 +67,8 @@ such as latitude and longitude.
 Keeping track of what particular systems do or do not offer,
 and what names they give different data types,
 is an unending portability headache.
+
+**For these reasons,my recommendation is to keep things as simple as possible, but no simpler...**
   
 When we create a table,
 we can specify several kinds of constraints on its columns.
@@ -111,6 +113,12 @@ We can also insert values into one table directly from another:
 create table JustLatLong(lat text, long text);
 insert into JustLatLong select lat, long from site;
 ~~~
+
+
+~~~
+drop table JustLatLong(lat text, long text);
+~~~
+
 
 Modifying existing records is done using the `update` statement.
 To do this we tell the database which table we want to update,
@@ -187,6 +195,8 @@ this technique is outside the scope of this chapter.
     619,-21.5
     622,-15.5
     ~~~
+    
+    **What would you need to update to add this information to your database? Which tables? Use `update` to add the person and the data to your table.  
 
     Write a small Python program that reads this file in
     and prints out the SQL `insert` statements needed
