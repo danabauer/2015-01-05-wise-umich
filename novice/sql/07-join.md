@@ -302,6 +302,13 @@ if it's in a certain form.
 As anthropologists say,
 the tool shapes the hand that shapes the tool.
 
+#####Complex Joins
+We won't cover it here today, but there are ways to join the data in more complex ways. 
+
+* `INNER JOIN` returns all rows from both tables where there is a match. If there are rows in first table that do not have matches in second table, those rows will not be listed.
+* `LEFT JOIN` returns all the rows from the first table, even if there are no matches in the second table. If there are rows in first table that do not have matches in second table, those rows also will be listed.
+* `RIGHT JOIN` returns all the rows from the second table, even if there are no matches in the first table. If there had been any rows in second table that did not have matches in first table, those rows also would have been listed.
+
 
 #### Challenges
 

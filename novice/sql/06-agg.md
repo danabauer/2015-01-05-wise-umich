@@ -85,6 +85,10 @@ and `sum`:
 <tr><td>64.83</td></tr>
 </table></div>
 
+We can even round our results to the decimal place we would like:
+
+<pre class="in"><code>SELECT ROUND(SUM(reading), 3) FROM survey</code></pre>
+
 
 We used `count(reading)` here,
 but we could just as easily have counted `quant`
@@ -154,8 +158,7 @@ and only combine those that are non-null.
 This behavior lets us write our queries as:
 
 
-<pre class="in"><code>
-select min(dated) from Visited;</code></pre>
+<pre class="in"><code>select min(dated) from Visited;</code></pre>
 
 <div class="out"><table>
 <tr><td>1927-02-08</td></tr>
@@ -234,6 +237,13 @@ Since all the records in each batch have the same value for `person`,
 it no longer matters that the database manager
 is picking an arbitrary one to display
 alongside the aggregated `reading` values.
+
+Its also getting difficult to read some of our aggregated column names after running our queries. We can fix this too using `AS`:
+
+<pre class="in"><code>SELECT person, count(reading) AS num_readings, ROUND(AVG(reading),2) AS avg_reading
+FROM survey
+WHERE quant='rad'
+GROUP BY person;</code></pre>
 
 **Notice that SQL is a hierarchical language. If you reorder your arguments (e.g. swap GROUP BY and WHERE), the query doesn't execute. REVISIT COMMANDS LEARNED SO FAR ON THE BOARD**
 

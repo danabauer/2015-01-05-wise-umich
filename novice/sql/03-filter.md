@@ -117,7 +117,7 @@ we can combine the tests on their names using `or`:
 
 
 Alternatively,
-we can use `in` to see if a value is in a specific set:
+we can use `IN` to see if a value is in a specific set:
 
 
 <pre class="in"><code>select * from Survey where person in (&#39;lake&#39;, &#39;roe&#39;);</code></pre>
