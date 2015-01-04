@@ -7,16 +7,32 @@ library(RSQLite)
 setwd("/Users/sarah/documents/github/2015-01-05-wise-umich/novice/sql/")
 
 
-system("ls *.db", show=TRUE)
+system("ls *.sqlite", show=TRUE)
 driver = dbDriver("SQLite")
-db = dbConnect(driver, dbname="survey.db")
+db = dbConnect(driver, dbname="portal_mammals.sqlite") #if you type in a database that it can't find, then you create a new one.
 
 #get a list of the tables and fields
 alltables = dbListTables(db) 
-fields1 = dbListFields(db, alltables[1])
+fields = dbListFields(db, alltables[2])
 
 #get desired data as a dataframe
-results = dbGetQuery(db, "select lat, long from site")
+yrplotsp = dbGetQuery(db, "SELECT year, plot, species, round(AVG(wgt),2) 
+FROM surveys 
+WHERE wgt is not NULL
+GROUP BY year, plot, species")
+
+tot = dbGetQuery(db, "Select year, sum(wgt) as TotMass from surveys Group By year")
+
+yrplotsp = dbGetQuery(db, "SELECT year, plot, species, round(AVG(wgt),2) AS avg_wgt FROM surveys WHERE wgt is not NULL
+GROUP BY year, plot, species")
+
+plot = dbGetQuery(db, "SELECT plot,round(AVG(wgt),2) AS avg_wgt FROM surveys WHERE wgt is not NULL
+GROUP BY plot")
+
+
+"FROM Visited JOIN Survey 
+ON Visited.ident=Survey.taken 
+WHERE person is not NULL AND quant IN ('rad', 'temp');")
 
 dbDisconnect(db)
 rm(db)
@@ -55,31 +71,3 @@ connection.close()
 return results[0][0]
 
 print "full name for dyer:", get_name('survey.db', 'dyer')
-
-
-#Making a new database in R
-driver="SQLite"
-db <- dbConnect(driver, dbname="Test.db")
-
-mysql> create database testdb;
-mysql> grant all privileges on testdb.* to 'testuser'@'localhost' identified by 'testpass';
-mysql> flush privileges;
-In R, load the “mtcars” data.frame, clean it up, and write it to a new “motortrend” table:
-  
-  library(stringr)
-library(RMySQL)
-
-data(mtcars)
-
-# car name is data.frame's rownames. Let's split into manufacturer and model columns:
-mtcars$mfg = str_split_fixed(rownames(mtcars), ' ', 2)[,1]
-mtcars$mfg[mtcars$mfg=='Merc'] = 'Mercedes'
-mtcars$model = str_split_fixed(rownames(mtcars), ' ', 2)[,2]
-
-# connect to local MySQL database (host='localhost' by default)
-con = dbConnect("MySQL", "testdb", username="testuser", password="testpass")
-
-dbWriteTable(con, 'motortrend', mtcars)
-
-dbDisconnect(con)
-
