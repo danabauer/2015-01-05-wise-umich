@@ -4,13 +4,13 @@ root: ../..
 title: Collaborating
 ---
 <div class="objectives" markdown="1">
-
+</div>
 #### Objectives
 *   Explain what remote repositories are and why they are useful.
 *   Explain what happens when a remote repository is cloned.
 *   Explain what happens when changes are pushed to or pulled from a remote repository.
 
-</div>
+
 
 Version control really comes into its own
 when we begin to collaborate with other people.
@@ -38,8 +38,8 @@ Git can set up a repository on your local computer - no connection to a big serv
 ###GitHub
 
 GitHub is where code is collected online.
-
 Show a project on GitHub (further justification for learning).
+
 * [white et al 2012](https://github.com/weecology/white-etal-2012-ecology)
 * [Class Seminar] (https://github.com/PermuteSeminar/PermuteSeminar-2014)
 * [manuscript] (https://github.com/weecology/data-sharing-paper)
@@ -48,7 +48,7 @@ Show a project on GitHub (further justification for learning).
 
 GitHub connects your local repositories to the online world and allows your project to get __social__
 
-You can __clone__ or __fork__ other people's repositories (more on that later).
+You can `clone` or `fork` other people's repositories (more on that later).
 
 Easily see changes that have been made (and when) and who made the changes
 
@@ -101,7 +101,6 @@ $ mkdir planets
 $ cd planets
 $ git init
 ~~~
-{:class="in"}
 
 Our local repository still contains our earlier work on `mars.txt`,
 but the remote repository on GitHub doesn't contain any files yet:
@@ -140,7 +139,6 @@ and run this command:
 ~~~
 $ git remote add origin https://github.com/vlad/planets
 ~~~
-{:class="in"}
 
 Make sure to use the URL for your repository rather than Vlad's:
 the only difference should be your username instead of `vlad`.
@@ -150,12 +148,11 @@ We can check that the command has worked by running `git remote -v`:
 ~~~
 $ git remote -v
 ~~~
-{:class="in"}
+
 ~~~
 origin   https://github.com/vlad/planets.git (push)
 origin   https://github.com/vlad/planets.git (fetch)
 ~~~
-{:class="out"}
 
 The name `origin` is a local nickname for your remote repository:
 we could use something else if we wanted to,
@@ -168,7 +165,7 @@ to the repository on GitHub:
 ~~~
 $ git push origin master
 ~~~
-{:class="in"}
+
 ~~~
 Counting objects: 9, done.
 Delta compression using up to 4 threads.
@@ -179,7 +176,6 @@ To https://github.com/vlad/planets
  * [new branch]      master -> master
 Branch master set up to track remote branch master from origin.
 ~~~
-{:class="out"}
 
 __Show that the files now exist online__
 

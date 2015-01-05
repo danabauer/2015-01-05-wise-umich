@@ -8,6 +8,7 @@ title: Introducing Version Control
 
 1. Take 30 seconds and explain to your neighbor what your project workflow is. What tools do you use? How do you keep notes on what you did?
 2. Does your workflow change when you collaborate with other people? How do you communicate?
+3. 
 _3 groups share their answers_
 
 ##What is Version Control?
@@ -81,9 +82,10 @@ Version control is better than mailing files back and forth because:
     the version control system automatically notifies users
     whenever there's a conflict between one person's work and another's.
 
-<div class="challenges" markdown="1">
+</div class="challenges" markdown="1">
 
-#### Challenges
+
+###Challenges
 
 On Wikipedia all changes and their authors are tracked. You can go
 [here](https://en.wikipedia.org/w/index.php?title=Mars&action=history)
