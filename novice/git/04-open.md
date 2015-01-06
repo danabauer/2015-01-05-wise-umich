@@ -4,6 +4,7 @@ root: ../..
 title: Open Science
 ---
 <div class="objectives" markdown="1">
+</div>?
 
 #### Objectives
 *   Explain how the GNU General Public License (GPL) differs from most other open licenses.
@@ -11,7 +12,6 @@ title: Open Science
 *   Correctly add licensing and citation information to a project repository.
 *   Outline options for hosting code and data and the pros and cons of each.
 
-</div>
 
 <blockquote>
 The opposite of "open" isn't "closed".
@@ -257,6 +257,7 @@ http://library.queensu.ca/ojs/index.php/IEE/article/view/4608
 https://peerj.com/preprints/7/__
 
 <div class="keypoints" markdown="1">
+</div>
 
 #### Key Points
 *   Open scientific work is more useful and more highly cited than closed.
@@ -274,18 +275,16 @@ https://peerj.com/preprints/7/__
 *   Rules regarding intellectual property and storage of sensitive information apply
     no matter where code and data are hosted.
 
-</div>
-
 <div class="challenge" markdown="1">
+</div>
+####Challenge
 Find out whether you are allowed to apply an open license to your software.
 Can you do this unilaterally,
 or do you need permission from someone in your institution?
 If so, who?
-</div>
 
-<div class="challenge" markdown="1">
+
 Find out whether you are allowed to host your work openly on a public forge.
 Can you do this unilaterally,
 or do you need permission from someone in your institution?
 If so, who?
-</div>
