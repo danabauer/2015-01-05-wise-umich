@@ -8,13 +8,12 @@ root: ../..
 
 <div class="objectives" markdown="1">
 #### Objectives
-
+</div>
 *   Explain the operation of a query that joins two tables.
 *   Explain how to restrict the output of a query containing a join to only include meaningful combinations of values.
 *   Write queries that join tables on equal keys.
 *   Explain what primary and foreign keys are, and why they are useful.
 *   Explain what atomic values are, and why database fields should only contain atomic values.
-</div>
 
 **So far, everything we have done has been about one table. But the real power for databases comes when we consider how data can be linked across tables.**
 
@@ -327,11 +326,10 @@ We won't cover it here today, but there are ways to join the data in more comple
 
 <div class="keypoints" markdown="1">
 #### Key Points
-
+</div>
 *   Every fact should be represented in a database exactly once.
 *   A join produces all combinations of records from one table with records from another.
 *   A primary key is a field (or set of fields) whose values uniquely identify the records in a table.
 *   A foreign key is a field (or set of fields) in one table whose values are a primary key in another table.
 *   We can eliminate meaningless combinations of records by matching primary keys and foreign keys between tables.
 *   Keys should be atomic values to make joins simpler and more efficient.
-</div>

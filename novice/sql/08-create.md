@@ -8,10 +8,9 @@ root: ../..
 
 <div class="objectives" markdown="1">
 #### Objectives
-
+</div>
 *   Write queries that creates tables.
 *   Write queries to insert, modify, and delete records.
-</div>
 
 
 So far we have only looked at how to get information out of a database,
@@ -198,13 +197,7 @@ this technique is outside the scope of this chapter.
     
     **What would you need to update to add this information to your database? Which tables? Use `update` to add the person and the data to your table.  
 
-    Write a small Python program that reads this file in
-    and prints out the SQL `insert` statements needed
-    to add these records to the survey database.
-    Note: you will need to add an entry for Olmstead
-    to the `Person` table.
-    If you are testing your program repeatedly,
-    you may want to investigate SQL's `insert or replace` command.
+
 
 3.  SQLite has several administrative commands that aren't part of the SQL standard.
     One of them is `.dump`,
@@ -219,7 +212,7 @@ this technique is outside the scope of this chapter.
 
 <div class="keypoints" markdown="1">
 #### Key Points
-
+</div>
 *   Database tables are created using queries that specify their names and the names and properties of their fields.
 *   Records can be inserted, updated, or deleted using queries.
 *   It is simpler and safer to modify data when every record has a unique primary key.

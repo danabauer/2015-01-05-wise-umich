@@ -308,10 +308,10 @@ select * from Person;</code></pre>
 
 <div class="keypoints" markdown="1">
 #### Key Points
+</div>
 
 *    A relational database stores information in tables,
     each of which has a fixed set of columns and a variable number of records.
  *   A database manager is a program that manipulates information stored in a database.
  *   We write queries in a specialized language called SQL to extract information from databases.
  *   SQL is case-insensitive.
-</div>

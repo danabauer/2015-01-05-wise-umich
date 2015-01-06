@@ -20,7 +20,7 @@ This lesson will demonstrate how to install the example database to be used in t
 
 In order to execute the following lessons interactively, please install SQLite as mentioned in the [setup instructions](http://software-carpentry.org/v5/setup.html).
 
-Then, generate a directory "software_carpentry_sql" at your chosen location, e.g.:
+Then, generate a directory "swc/sql" at your chosen location, e.g.:
 
 
 1) Open a command line terminal window.  

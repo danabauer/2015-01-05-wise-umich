@@ -8,6 +8,7 @@ root: ../..
 
 <div class="objectives" markdown="1">
 #### Objectives
+</div>
 
 *   Write queries that display results in a particular order.
 *   Write queries that eliminate duplicate values from data.
@@ -17,7 +18,7 @@ root: ../..
 Data is often redundant,
 so queries often return redundant information.
 For example,
-if we select the quantitites that have been measured
+if we select the quantities that have been measured
 from the `survey` table,
 we get this:
 
@@ -215,6 +216,7 @@ This is easier to understand if we also remove duplicates:
 
 <div class="keypoints" markdown="1">
 #### Key Points
+</div>
 
 *   The records in a database table are not intrinsically ordered:
     if we want to display them in some order,
@@ -222,4 +224,3 @@ This is easier to understand if we also remove duplicates:
 *   The values in a database are not guaranteed to be unique:
     if we want to eliminate duplicates,
     we must specify that explicitly as well.
-</div>

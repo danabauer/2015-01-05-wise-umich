@@ -8,9 +8,8 @@ root: ../..
 
 <div class="objectives" markdown="1">
 #### Objectives
-
-*   Write queries that calculate new values for each selected record.
 </div>
+*   Write queries that calculate new values for each selected record.
 
 
 After carefully re-reading the expedition logs,
@@ -164,6 +163,5 @@ the list should contain only "DR" and "MSK").
 
 <div class="keypoints" markdown="1">
 #### Key Points
-
-*   SQL can perform calculations using the values in a record as part of a query.
 </div>
+*   SQL can perform calculations using the values in a record as part of a query.

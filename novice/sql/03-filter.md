@@ -8,10 +8,9 @@ root: ../..
 
 <div class="objectives" markdown="1">
 #### Objectives
-
+</div>
 *   Write queries that select records that satisfy user-specified conditions.
 *   Explain the order in which the clauses in a query are executed.
-</div>
 
 
 One of the most powerful features of a database is
@@ -251,9 +250,9 @@ not to the entire rows as they are being processed.
 **select * from Site WHERE name like 'DR%'**
 
 <div class="keypoints" markdown="1">
+</div>
 #### Key Points
 
 *   Use `where` to filter records according to Boolean conditions.
 *   Filtering is done on whole records,
     so conditions can use fields that are not actually displayed.
-</div>

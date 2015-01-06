@@ -8,7 +8,7 @@ root: ../..
 
 <div class="objectives" markdown="1">
 #### Objectives
-
+</div>
 *   Write short programs that execute SQL queries.
 *   Trace the execution of a program that contains an SQL query.
 *   Explain why most database applications are written in a general-purpose language rather than in SQL.
@@ -152,10 +152,10 @@ A prepared statement makes key changes in the query string that allows user inpu
 
 
 <div class="keypoints" markdown="1">
+</div>
 #### Key Points
 
 *   We usually write database applications in a general-purpose language, and embed SQL queries in it.
 *   To connect to a database, a program must use a library specific to that database manager.
 *   A program may open one or more connections to a single database, and have one or more cursors active in each.
 *   Programs can read query results in batches or all at once.
-</div>

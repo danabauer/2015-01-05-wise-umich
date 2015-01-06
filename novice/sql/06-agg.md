@@ -8,12 +8,12 @@ root: ../..
 
 <div class="objectives" markdown="1">
 #### Objectives
+</div>
 
 *   Define "aggregation" and give examples of its use.
 *   Write queries that compute aggregated values.
 *   Trace the execution of a query that performs aggregation.
 *   Explain how missing data is handled during aggregation.
-</div>
 
 
 We now want to calculate ranges and averages for our data.
@@ -370,7 +370,7 @@ this query:
 
 <div class="keypoints" markdown="1">
 #### Key Points
-
+</div>
 *   An aggregation function combines many values to produce a single new value.
 *   Aggregation functions ignore `null` values.
 *   Aggregation happens after filtering.

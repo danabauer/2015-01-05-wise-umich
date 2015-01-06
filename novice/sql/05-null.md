@@ -218,6 +218,7 @@ we need to exclude all the records for which we don't know who did the work.
 
 <div class="keypoints" markdown="1">
 #### Key Points
+</div>
 
 *   Databases use `null` to represent missing information.
 *   Any arithmetic or Boolean operation involving `null` produces `null` as a result.
