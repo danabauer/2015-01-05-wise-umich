@@ -252,8 +252,9 @@ but many institutions may not allow researchers to do this,
 either because they want to protect future patent applications
 or simply because what's new is often also frightening.
 
-[9 simple ways to share your data](http://library.queensu.ca/ojs/index.php/IEE/article/view/4608
-https://peerj.com/preprints/7/)
+__Link to 9 simple ways to share your data paper: 
+http://library.queensu.ca/ojs/index.php/IEE/article/view/4608
+https://peerj.com/preprints/7/__
 
 <div class="keypoints" markdown="1">
 </div>

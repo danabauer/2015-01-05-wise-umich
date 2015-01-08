@@ -200,7 +200,8 @@ The "untracked files" message means that there's a file in the directory
 that Git isn't keeping track of.
 
 _Now, lets add files that are inside:
-`git add` moves changes to the staging area.
+On the white board draw a box representing the staging area (index) and 
+explain that this is where we set up the next snapshot of our project.
 Like a photographer in a studio, we're putting together a shot 
 before we actually snap the picture.
 Connect the working area box and the staging box with 'git add'._
@@ -233,14 +234,14 @@ $ git status
 ~~~
 
 
-__The "Untracked files" section displays and git tells you how to add a file to the next commit._
+__highlight the "Untracked files" section and that git tells you how to add a file to the next commit._
 
 Git now knows that it's supposed to keep track of `mars.txt`,
 but it hasn't yet recorded any changes for posterity as a commit.
 
 _Tell git _"Hey, we want you to remember the way that the files look right now"_._
 
-_Now, we are moving changes to the area that stores the project history. 
+_On the white board draw a box representing the project history. 
 Once we take a snapshot of the project that snapshot becomes a permanent reference point in the project's history that we can always go back to.
 The history is like a photo album of changes, and each snapshot has a time stamp, the name of the photographer, and a description.
 Connect the staging area to the history with `git commit -m "message"`.
@@ -255,6 +256,7 @@ _In the same way that it is wise to often save a document that you are working o
 More frequent commits increase the granularity of your undo button._
 
 __ADVICE: Good commit messages__
+[because it's important!](http://www.commitlogsfromlastnight.com/)
 _There are no hard and fast rules, but good commits are atomic: they are the smallest change that remain meaningful. 
 A good commit message usually contains a one-line description followed by a longer explanation if necessary.
 For code, it's useful to commit changes that can be reviewed by someone in under an hour. 
@@ -812,8 +814,8 @@ What if we have files that we do not want Git to track for us,
 like backup files created by our editor
 or intermediate files created during data analysis.
 
-_while git can keep track of data files, this is often not a great idea. For example, .rdata files can take up a lot of space and data files in most cases should be in teh .git ignore file._
-
+_while git can keep track of data files, this is often not a great idea.
+Share story of .rdata files in collaborative project. Why they needed to be in the .git ignore file_
 
 Let's create a few dummy files:
 

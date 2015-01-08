@@ -74,9 +74,10 @@ GitHub, much like other forge hosting services (launchpad, bitbucket, googlecode
 * commit triggered mailing lists
 * other service hooks (twitter, etc.)
 
-__Take a quick tour of GitHub__
+__Give a quick tour of GitHub__
 
-__EXERCISE:__ _Make a new account if you don't have one yet.__
+__EXERCISE:__ _Show everyone how to make a new account. 
+If they have an account already, ask them to help their neighbors get started._
 
 Let's start by sharing the changes we've made to our current project with the world.
 Log in to GitHub,
@@ -240,8 +241,8 @@ If someone else had pushed some changes to the repository on GitHub,
 though,
 this command would download them to our local repository.
 
-__Add a README.md file on the browser. Pull changes back down to your machine__
-__Add changes or  data to your local repository. Push changes__
+__Add a README.md file on the browser. Demonstrate pulling changes back down to your machine__
+__Add NASA data to my local repository (http://www.nasa.gov/open/data.html). Push changes__
 
 For the next step, get into pairs.
 Pick one of your repositories on Github to use for collaboration.
@@ -256,6 +257,8 @@ Pick one of your repositories on Github to use for collaboration.
 The partner whose repository is being used needs to give the other person access.
 On Github, click the settings button on the right,
 then select Collaborators, and enter your partner's username.
+
+__Demonstrate how to add collaborators__
 
 <img src="img/github-add-collaborators.png" alt="Adding collaborators on Github" />
 
@@ -341,8 +344,6 @@ Fast-forward
  create mode 100644 pluto.txt
 ~~~
 
-
-__YOU can delete a repository anytime by going into your settings on GitHub. This IS NOT reversible!!__
 
 <div class="keypoints" markdown="1">
 </div>
