@@ -210,6 +210,7 @@ This is easier to understand if we also remove duplicates:
 
 2.  Write a query that displays the full names of the scientists in the `Person` table, ordered by family name.
 
+**After 1 minute, ask Students to compare with a partner. Pick 2 people to share thier answers with the class**
 
 
 

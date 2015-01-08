@@ -46,6 +46,7 @@ and produces a single record as output:
 <tr><td>1927-02-08</td></tr>
 </table></div>
 
+**DRAW ON THE BOARD AND DISCUSS WHAT THE COMPUTER IS DOING HERE**
 
 <img src="img/sql-aggregation.svg" alt="SQL Aggregation" />
 
@@ -119,7 +120,8 @@ although the output might surprise you:
 <tr><td>lake</td><td>7</td></tr>
 </table></div>
 
-Why does Lake's name appear rather than Roerich's or Dyer's?
+
+**ASK CLASS: Why does Lake's name appear rather than Roerich's or Dyer's?**
 
 The answer is that when it has to aggregate a field,
 but isn't told how to,
@@ -204,6 +206,7 @@ and   person=&#39;dyer&#39;;</code></pre>
 <tr><td>dyer</td><td>2</td><td>8.81</td></tr>
 </table></div>
 
+**But why wouldn't we want to write separate queries? Ideas?**
 
 but this would be tedious,
 and if she ever had a data set with fifty or five hundred scientists,
@@ -242,7 +245,7 @@ FROM survey
 WHERE quant='rad'
 GROUP BY person;</code></pre>
 
-**Notice that SQL is a hierarchical language. If you reorder your arguments (e.g. swap GROUP BY and WHERE), the query doesn't execute.**
+**Notice that SQL is a hierarchical language. If you reorder your arguments (e.g. swap GROUP BY and WHERE), the query doesn't execute. REVISIT COMMANDS LEARNED SO FAR ON THE BOARD**
 
 
 Just as we can sort by multiple criteria at once,
@@ -277,6 +280,8 @@ since the results wouldn't make much sense otherwise.
 Let's go one step further and remove all the entries
 where we don't know who took the measurement:
 
+**ASK SOMEONE TO SUGGEST an answer for this**
+
 
 <pre class="in"><code>select   person, quant, count(reading), round(avg(reading), 2)
 from     Survey
@@ -296,6 +301,8 @@ order by person, quant;</code></pre>
 <tr><td>roe</td><td>sal</td><td>2</td><td>32.05</td></tr>
 </table></div>
 
+
+**Let's think about what happened in this query**
 
 Looking more closely,
 this query:
@@ -329,7 +336,8 @@ this query:
     divided by the number of values.
     Does this mean that the `avg` function returns 2.0 or 3.0
     when given the values 1.0, `null`, and 5.0?
-
+    
+    **ANSWER: should return 3 becasue aggregate functions ignore NULL rows**
 
 3.  We want to calculate the difference between
     each individual radiation reading
@@ -343,7 +351,9 @@ this query:
     What does this actually produce, and why?
     
 
-4.	The function `group_concat(field, separator)`
+4.  **NOTE: NOT SURE THIS WORKS THE SAME IN Firefox SQLite Manager. High derailment probability. SKIP**
+
+	The function `group_concat(field, separator)`
     concatenates all the values in a field
     using the specified separator character
     (or ',' if the separator isn't specified).

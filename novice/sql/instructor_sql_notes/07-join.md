@@ -322,6 +322,7 @@ We won't cover it here today, but there are ways to join the data in more comple
     on Site.lat<-49.0 and Site.name=Visited.site and Visited.dated>='1932-00-00';
     ~~~
 
+**ANSWER: ON acts like WHERE. Could also be written using WHERE and ON.**
 
 <div class="keypoints" markdown="1">
 #### Key Points

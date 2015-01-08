@@ -47,6 +47,8 @@ After installing Wget (or cURL) locally, run the following command on your termi
 
 <i>[Tip: If you prefer to use cURL, replace "wget" with "curl -O" in the following command.]</i>
 
+<i> [Note: If students have a problem with installing Wget or CURL, have a backup copy of the database on my website they can download directly] <i>
+
 
 <pre class="in"><code>mom@durga:~/swc/sql$ wget https://raw.githubusercontent.com/swcarpentry/bc/master/novice/sql/gen-survey-database.sql</code></pre>
 

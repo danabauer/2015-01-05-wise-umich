@@ -91,6 +91,9 @@ but they help make the query easier to read.) **STYLE**
 > but not nearly as complicated as figuring out
 > [historical dates in Sweden](http://en.wikipedia.org/wiki/Swedish_calendar).
 
+**This is why for several of my ecological databases, I have stored dates as 3 separate columns. It's a bit clunky, but this allows me to store them as integers (for year, month, and day separately) that can be queried easily. e.g. all rodents captured in July and August, or species captured before 1989).**
+
+
 
 If we want to find out what measurements were taken by either Lake or Roerich,
 we can combine the tests on their names using `or`:
@@ -244,6 +247,7 @@ not to the entire rows as they are being processed.
     write a query that finds all the records in `Visited`
     that *aren't* from sites labelled 'DR-something'.
 
+**select * from Site WHERE name like 'DR%'**
 
 <div class="keypoints" markdown="1">
 </div>

@@ -67,6 +67,7 @@ Keeping track of what particular systems do or do not offer,
 and what names they give different data types,
 is an unending portability headache.
 
+**For these reasons,my recommendation is to keep things as simple as possible, but no simpler...**
   
 When we create a table,
 we can specify several kinds of constraints on its columns.

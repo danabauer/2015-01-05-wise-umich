@@ -70,6 +70,7 @@ for example by using the string concatenation operator `||`:
 <tr><td>Frank Danforth</td></tr>
 </table></div>
 
+**DISCUSS WITH PARTNER FOR 1 MINUTE: While we're thinking about data structure, why do you think the names here are divided into family and personal? Would you use firs and last? Or would you combine the names into a single character string, as we just did? Why or why not?**
 
 > It may seem strange to use `personal` and `family` as field names
 > instead of `first` and `last`,

@@ -15,6 +15,8 @@ root: ../..
 </div>
 
 
+**1 minute DISCUSS:Turn to another person near you (try to find someone new). Do you work with any data that has missing values? How do you enter it in your database? Do you use or ignore that data in your analysis? What are some potential problems when using data that has missing values? Ask 1-2 students to share**
+
 Real-world data is never complete&mdash;there are always holes.
 Databases represent these holes using special value called `null`.
 `null` is not zero, `False`, or the empty string;
@@ -93,6 +95,8 @@ Comparisons aren't the only operations that behave this way with nulls.
 `log(null)` is `null`,
 and so on.
 
+**How do you think we could ask for null values? Do you think asking for where values=NULL or values!=NULL would work?**
+
 In particular,
 comparing things to null with = and != produces null:
 
@@ -110,6 +114,7 @@ comparing things to null with = and != produces null:
 
 </table></div>
 
+**How would we locate null values in another program, such as R (is.na)?**
 
 To check whether a value is `null` or not,
 we must use a special test `is null`:
@@ -164,6 +169,7 @@ so the record isn't kept in our results.
 If we want to keep these records
 we need to add an explicit check:
 
+**Ask for a student to suggest an answer for adding the check**
 
 <pre class="in"><code>select * from Survey where quant=&#39;sal&#39; and (person!=&#39;lake&#39; or person is null);</code></pre>
 
@@ -186,7 +192,7 @@ we need to exclude all the records for which we don't know who did the work.
 
 1.  Write a query that sorts the records in `Visited` by date,
     omitting entries for which the date is not known
-    (i.e., is null). 
+    (i.e., is null). **You may need to google your options**
 
 1.  What do you expect the query:
 
@@ -196,7 +202,8 @@ we need to exclude all the records for which we don't know who did the work.
 
     to produce?
     What does it actually produce? Why?
-
+    
+**to think like a programmer, it can sometimes be helpful to simply read code. When I do a code review with collaborators or students, we will sometimes just look at the code, without running it, and read (in complete sentences, like we are reading a book) what we think the code is doing. This can help identify where we are wrong, what we misunderstand, and to discuss potential problems, or come up with solutions. Learning to program is like learning any other language. Practice allows you to get to the point (fluency) where you can comprehend new things using context clues and don't have to conciously interpret everything. Our goal today is to get you to novice-level practicitoners, but becoming fluent is something anyone can do with enough practice**
 
 1.  Some database designers prefer to use
     a [sentinel value](../../gloss.html#sentinel-value)

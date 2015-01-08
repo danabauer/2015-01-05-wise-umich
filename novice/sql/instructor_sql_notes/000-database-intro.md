@@ -32,7 +32,7 @@ Relational databases
   * Step 1: Read a really really big file
   * Step 2: Select, find and filter the data we need from the file
   * Then do analyses
-  * Databases: Step 1: data is already indexed, so move right to selecting and filtering data!!
+  *Databases: Step 1: data is already indexed, so move right to selecting and filtering data!!
   
 ###SQL
 
@@ -40,11 +40,11 @@ Relational databases
 * FREE!
 * Many Genome browsers, Entrez, Ensembl, Gene Ontology use MySQL to run Web Portals
 * Can update, modify tables, save queries (repetitive tasks)
-* Combine database skills with programming environments
+* Combine database skillz with programming environments
   * Now you are omnipotent!
 
 
-
+#
 ###Our Lesson Today:
 There are lots of different ways to interact with relational databases. The important thing is to get a sense of how to structure your data, and to use the tool that makes the most sense based on your database size and your collaborator's tools and skill sets. There are commands to interact with databases through the command line, in R, Python, and there are visual ways such as Microsoft Access, Oracle (business) and Firefox. 
 

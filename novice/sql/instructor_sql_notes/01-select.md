@@ -74,6 +74,7 @@ SQL provides hundreds of different ways to analyze and recombine data;
 we will only look at a handful,
 but that handful accounts for most of what scientists do.
 
+**INSTRUCTOR NOTE: We will have 4 tables in our database. Draw on board and point out the relationships between the tables. Build on notes from Christie and Kara's data carpentry tidbits**
 
 <i>The tables below show the database we will use in our examples:</i>
 
